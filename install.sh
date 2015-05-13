@@ -1,6 +1,6 @@
 #!/bin/bash
 #Install some things
-sudo apt-get install mercurial curl
+sudo apt-get install git mercurial curl
 
 #Install some dotfiles.
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
