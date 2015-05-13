@@ -27,10 +27,10 @@ fi
 #install golang
 VERSION="1.4.2"
 DFILE="go$VERSION.linux-amd64.tar.gz"
-wget https://storage.googleapis.com/golang/$DFILE -O ~/Downloads/
+wget https://storage.googleapis.com/golang/$DFILE -P ~/Downloads
 if [ $? -ne 0 ]; then
     echo "Download failed! Exiting."
     exit 1
 fi
 sudo tar -C /usr/local -xzf ~/Downloads/go$VERSION.linux-amd64.tar.gz
-mkdir -p "$HOME/go/{src,pkg,bin}"
+mkdir -p ~/go/{bin,pkg,src/github.com/mikecb}
