@@ -15,7 +15,14 @@ ln -fs ${BASEDIR}/gitconfig ~/.gitconfig
 wget https://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb
 sudo dpkg -i google-chrome-unstable_current_amd64.deb
 sudo apt-get -f install
-curl https://sdk.cloud.google.com | bash
+
+if [ -d "$HOME/google-cloud-sdk" ]; then
+    echo "Cloud sdk already installed. Updating..."
+    gcloud components update
+
+else
+    curl https://sdk.cloud.google.com | bash
+fi
 
 #install golang
 VERSION="1.4.2"
