@@ -32,5 +32,5 @@ if [ $? -ne 0 ]; then
     echo "Download failed! Exiting."
     exit 1
 fi
-sudo tar -C /usr/local -xzf /tmp/go.tar.gz
+sudo tar -C /usr/local -xzf ~/Downloads/go$VERSION.linux-amd64.tar.gz
 mkdir -p "$HOME/go/{src,pkg,bin}"
