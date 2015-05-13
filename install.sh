@@ -17,11 +17,12 @@ sudo dpkg -i google-chrome-unstable_current_amd64.deb
 sudo apt-get -f install
 
 if [ -d "$HOME/google-cloud-sdk" ]; then
-    echo "Cloud sdk already installed. Updating..."
+    echo "Cloud SDK already installed. Updating..."
     gcloud components update
 
 else
     curl https://sdk.cloud.google.com | bash
+    gcloud components update pkg-go pkg-python app preview beta alpha
 fi
 
 #install golang
@@ -34,3 +35,5 @@ if [ $? -ne 0 ]; then
 fi
 sudo tar -C /usr/local -xzf ~/Downloads/go$VERSION.linux-amd64.tar.gz
 mkdir -p ~/go/{bin,pkg,src/github.com/mikecb}
+
+echo "Log out and back in for changes to be reflected."
