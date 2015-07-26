@@ -37,3 +37,12 @@ sudo tar -C /usr/local -xzf ~/Downloads/go$VERSION.linux-amd64.tar.gz
 mkdir -p ~/go/{bin,pkg,src/github.com/mikecb}
 
 echo "Log out and back in for changes to be reflected."
+
+#install atom
+sudo add-apt-repository ppa:webupd8team/atom
+sudo apt-get update
+sudo apt-get install atom
+
+#install android-studio
+sudo apt-get install ubuntu-make
+umake -v android
