@@ -9,7 +9,8 @@ ln -fs ${BASEDIR}/bashrc ~/.bashrc
 ln -fs ${BASEDIR}/profile ~/.profile
 # git
 ln -fs ${BASEDIR}/gitconfig ~/.gitconfig
-
+#u2f
+sudo cp ./70-u2f.rules /etc/udev/rules.d
 
 #Download some things
 wget https://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb
