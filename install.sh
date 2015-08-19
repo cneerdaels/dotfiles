@@ -10,7 +10,11 @@ ln -fs ${BASEDIR}/profile ~/.profile
 # git
 ln -fs ${BASEDIR}/gitconfig ~/.gitconfig
 #u2f
-sudo cp ./70-u2f.rules /etc/udev/rules.d
+if [ -e "/etc/udev/rules.d/70-u2f.rules" ]; then
+    echo "U2F alredy enabled, proceeding..."
+else
+    sudo cp ./70-u2f.rules /etc/udev/rules.d
+fi
 
 #Download some things
 wget https://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb
