@@ -31,7 +31,7 @@ else
 fi
 
 #install golang
-VERSION="1.5"
+VERSION="1.5.2"
 DFILE="go$VERSION.linux-amd64.tar.gz"
 wget https://storage.googleapis.com/golang/$DFILE -P ~/Downloads
 if [ $? -ne 0 ]; then
