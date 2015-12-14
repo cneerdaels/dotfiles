@@ -1,5 +1,6 @@
 #!/bin/bash
-#Install some things
+# Update and install some fetchers.
+sudo apt-get update -y && sudo apt-get dist-upgrade -y
 sudo apt-get install git mercurial curl
 
 #Install some dotfiles.
@@ -24,29 +25,37 @@ sudo apt-get -f install
 if [ -d "$HOME/google-cloud-sdk" ]; then
     echo "Cloud SDK already installed. Updating..."
     gcloud components update
-
 else
     curl https://sdk.cloud.google.com | bash
     gcloud components update pkg-go pkg-python app preview beta alpha
 fi
 
 #install golang
-VERSION="1.5.2"
-DFILE="go$VERSION.linux-amd64.tar.gz"
+GOVERSION="1.5.2"
+DFILE="go$GOVERSION.linux-amd64.tar.gz"
 wget https://storage.googleapis.com/golang/$DFILE -P ~/Downloads
 if [ $? -ne 0 ]; then
     echo "Download failed! Exiting."
     exit 1
 fi
-sudo tar -C /usr/local -xzf ~/Downloads/go$VERSION.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf ~/Downloads/$DFILE
 mkdir -p ~/go/{bin,pkg,src/github.com/mikecb}
 
+#install appengine sdk
+APPVERSION="1.9.30"
+AFILE="go_appengine_sdk_linux_amd64-$APPVERSION.zip"
+wget https://storage.googleapis.com/appengine-sdks/featured/$AFILE ~/Downloads
+unzip ~/Downloads/$AFILE ~/appengine
 echo "Log out and back in for changes to be reflected."
 
 #install atom
 sudo add-apt-repository ppa:webupd8team/atom
 sudo apt-get update
 sudo apt-get install atom
+
+#Python dev
+sudo pip install yapf && sudo pip3 install yapf
+
 
 #install android-studio
 sudo apt-get install ubuntu-make
