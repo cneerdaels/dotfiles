@@ -1,7 +1,7 @@
 #!/bin/bash
 # Update and install some fetchers.
 sudo apt-get update -y && sudo apt-get dist-upgrade -y
-sudo apt-get install git mercurial curl
+sudo apt-get install git mercurial curl python-pip oython-pip3
 
 #Install some dotfiles.
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -31,7 +31,7 @@ else
 fi
 
 #install golang
-GOVERSION="1.5.2"
+GOVERSION="1.5.3"
 DFILE="go$GOVERSION.linux-amd64.tar.gz"
 wget https://storage.googleapis.com/golang/$DFILE -P ~/Downloads
 if [ $? -ne 0 ]; then
@@ -42,16 +42,17 @@ sudo tar -C /usr/local -xzf ~/Downloads/$DFILE
 mkdir -p ~/go/{bin,pkg,src/github.com/mikecb}
 
 #install appengine sdk
-APPVERSION="1.9.30"
+APPVERSION="1.9.32"
 AFILE="go_appengine_sdk_linux_amd64-$APPVERSION.zip"
-wget https://storage.googleapis.com/appengine-sdks/featured/$AFILE ~/Downloads
+wget https://storage.googleapis.com/appengine-sdks/featured/$AFILE -P ~/Downloads
 unzip ~/Downloads/$AFILE ~/appengine
 echo "Log out and back in for changes to be reflected."
 
-#install atom
+#install atom & packages
 sudo add-apt-repository ppa:webupd8team/atom
 sudo apt-get update
-sudo apt-get install atom
+sudo apt-get install atom libzmq3-dev
+apm install python-yapf autocomplete-go go-plus hydrogen
 
 #Python dev
 sudo pip install yapf && sudo pip3 install yapf
