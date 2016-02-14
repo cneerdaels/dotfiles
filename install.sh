@@ -1,7 +1,7 @@
 #!/bin/bash
 # Update and install some fetchers.
 sudo apt-get update -y && sudo apt-get dist-upgrade -y
-sudo apt-get install git mercurial curl python-pip oython-pip3
+sudo apt-get install git mercurial curl python-pip python3-pip
 
 #Install some dotfiles.
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -45,17 +45,18 @@ mkdir -p ~/go/{bin,pkg,src/github.com/mikecb}
 APPVERSION="1.9.32"
 AFILE="go_appengine_sdk_linux_amd64-$APPVERSION.zip"
 wget https://storage.googleapis.com/appengine-sdks/featured/$AFILE -P ~/Downloads
+mkdir -p ~/appengine
 unzip ~/Downloads/$AFILE ~/appengine
 echo "Log out and back in for changes to be reflected."
+
+#Python dev
+sudo pip install yapf && sudo pip3 install yapf
 
 #install atom & packages
 sudo add-apt-repository ppa:webupd8team/atom
 sudo apt-get update
 sudo apt-get install atom libzmq3-dev
 apm install python-yapf autocomplete-go go-plus hydrogen
-
-#Python dev
-sudo pip install yapf && sudo pip3 install yapf
 
 
 #install android-studio
