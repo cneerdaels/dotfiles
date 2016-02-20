@@ -50,7 +50,9 @@ unzip ~/Downloads/$AFILE ~/appengine
 echo "Log out and back in for changes to be reflected."
 
 #Python dev
-sudo pip install yapf && sudo pip3 install yapf
+sudo apt-get install python3-numpy python3-scipy python3-matplotlib ipython3 ipython3-notebook cython3
+sudo pip3 install yapf pystan
+sudo pip3 install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.7.0-py3-none-linux_x86_64.whl
 
 #install atom & packages
 sudo add-apt-repository ppa:webupd8team/atom
