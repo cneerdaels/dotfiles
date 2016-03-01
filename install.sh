@@ -58,7 +58,7 @@ sudo pip3 install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/
 sudo add-apt-repository ppa:webupd8team/atom
 sudo apt-get update
 sudo apt-get install atom libzmq3-dev
-apm install python-yapf autocomplete-go go-plus hydrogen
+apm install python-yapf git-plus minimap autocomplete-go go-plus hydrogen
 
 
 #install android-studio
