@@ -31,7 +31,7 @@ else
 fi
 
 #install golang
-GOVERSION="1.5.3"
+GOVERSION="1.6"
 DFILE="go$GOVERSION.linux-amd64.tar.gz"
 wget https://storage.googleapis.com/golang/$DFILE -P ~/Downloads
 if [ $? -ne 0 ]; then
@@ -42,7 +42,7 @@ sudo tar -C /usr/local -xzf ~/Downloads/$DFILE
 mkdir -p ~/go/{bin,pkg,src/github.com/mikecb}
 
 #install appengine sdk
-APPVERSION="1.9.32"
+APPVERSION="1.9.33"
 AFILE="go_appengine_sdk_linux_amd64-$APPVERSION.zip"
 wget https://storage.googleapis.com/appengine-sdks/featured/$AFILE -P ~/Downloads
 mkdir -p ~/appengine
