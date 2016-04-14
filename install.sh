@@ -34,7 +34,7 @@ else
 fi
 
 #install golang
-GOVERSION="1.6"
+GOVERSION="1.6.1"
 DFILE="go$GOVERSION.linux-amd64.tar.gz"
 wget https://storage.googleapis.com/golang/$DFILE -P ~/Downloads
 if [ $? -ne 0 ]; then
