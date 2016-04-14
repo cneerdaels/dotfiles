@@ -1,4 +1,7 @@
 #!/bin/bash
+#Add some repos
+sudo add-apt-repository ppa:webupd8team/atom
+
 # Update and install some fetchers.
 sudo apt-get update -y && sudo apt-get dist-upgrade -y
 sudo apt-get install git mercurial curl python-pip python3-pip
@@ -42,25 +45,19 @@ sudo tar -C /usr/local -xzf ~/Downloads/$DFILE
 mkdir -p ~/go/{bin,pkg,src/github.com/mikecb}
 
 #install appengine sdk
-APPVERSION="1.9.33"
+APPVERSION="1.9.35"
 AFILE="go_appengine_sdk_linux_amd64-$APPVERSION.zip"
 wget https://storage.googleapis.com/appengine-sdks/featured/$AFILE -P ~/Downloads
 mkdir -p ~/appengine
-unzip ~/Downloads/$AFILE ~/appengine
+unzip ~/Downloads/$AFILE -d ~/appengine
 echo "Log out and back in for changes to be reflected."
 
 #Python dev
 sudo apt-get install python3-numpy python3-scipy python3-matplotlib ipython3 ipython3-notebook cython3
 sudo pip3 install yapf pystan
-sudo pip3 install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.7.0-py3-none-linux_x86_64.whl
+sudo pip3 install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.8.0rc0-cp34-cp34m-linux_x86_64.whl
 
 #install atom & packages
-sudo add-apt-repository ppa:webupd8team/atom
-sudo apt-get update
 sudo apt-get install atom libzmq3-dev
 apm install python-yapf git-plus minimap autocomplete-go go-plus hydrogen
 
-
-#install android-studio
-sudo apt-get install ubuntu-make
-umake -v android
