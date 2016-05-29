@@ -43,6 +43,7 @@ if [ $? -ne 0 ]; then
 fi
 sudo tar -C /usr/local -xzf ~/Downloads/$DFILE
 mkdir -p ~/go/{bin,pkg,src/github.com/mikecb}
+go get github.com/derekparker/delve/cmd/dlv
 
 #install appengine sdk
 APPVERSION="1.9.35"
@@ -58,6 +59,6 @@ sudo pip3 install yapf pystan
 sudo pip3 install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.8.0rc0-cp34-cp34m-linux_x86_64.whl
 
 #install atom & packages
-sudo apt-get install atom libzmq3-dev
-apm install python-yapf git-plus minimap autocomplete-go go-plus hydrogen
+sudo apt-get install atom
+apm install python-yapf git-plus minimap autocomplete-go go-plus go-debug
 
