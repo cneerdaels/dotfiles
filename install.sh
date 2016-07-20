@@ -58,6 +58,10 @@ sudo apt-get install python3-numpy python3-scipy python3-matplotlib ipython3 ipy
 sudo pip3 install yapf pystan
 sudo pip3 install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.8.0rc0-cp34-cp34m-linux_x86_64.whl
 
+#More Go
+sudo apt-get install protobuf-compiler
+go get -u github.com/golang/protobuf/{proto,protoc-gen-go}
+
 #install atom & packages
 sudo apt-get install atom
 apm install python-yapf git-plus minimap autocomplete-go go-plus go-debug
