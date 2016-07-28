@@ -30,7 +30,7 @@ if [ -d "$HOME/google-cloud-sdk" ]; then
     gcloud components update
 else
     curl https://sdk.cloud.google.com | bash
-    gcloud components update pkg-go pkg-python app preview beta alpha
+    gcloud components install app-engine-python app-engine-go kubectl beta alpha pubsub-emulator cloud-datastore-emulator bq
 fi
 
 #install golang
