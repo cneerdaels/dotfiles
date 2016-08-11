@@ -64,5 +64,5 @@ go get -u github.com/golang/protobuf/{proto,protoc-gen-go}
 
 #install atom & packages
 sudo apt-get install atom
-apm install python-yapf git-plus minimap autocomplete-go go-plus go-debug
+apm install python-yapf git-plus minimap autocomplete-go go-plus go-debug sort-lines language-yara language-protobuf
 
