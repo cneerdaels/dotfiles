@@ -10,7 +10,10 @@ sudo apt-get install git mercurial curl python-pip python3-pip
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # bash
 ln -fs ${BASEDIR}/bashrc ~/.bashrc
+source ~/.bashrc
 ln -fs ${BASEDIR}/profile ~/.profile
+source ~/.profile
+
 # git
 ln -fs ${BASEDIR}/gitconfig ~/.gitconfig
 #u2f
@@ -19,6 +22,8 @@ if [ -e "/etc/udev/rules.d/70-u2f.rules" ]; then
 else
     sudo cp ./70-u2f.rules /etc/udev/rules.d
 fi
+
+
 
 #Download some things
 wget https://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb
