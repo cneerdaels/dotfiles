@@ -61,7 +61,7 @@ echo "Log out and back in for changes to be reflected."
 #Python dev
 sudo apt-get install python3-numpy python3-scipy python3-matplotlib ipython3 ipython3-notebook cython3
 sudo pip3 install yapf pystan
-sudo pip3 install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.8.0rc0-cp34-cp34m-linux_x86_64.whl
+sudo pip3 install --upgrade tensorflow
 
 #More Go
 sudo apt-get install protobuf-compiler
