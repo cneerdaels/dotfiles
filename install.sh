@@ -30,16 +30,14 @@ wget https://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb
 sudo dpkg -i google-chrome-unstable_current_amd64.deb
 sudo apt-get -f install
 
-if [ -d "$HOME/google-cloud-sdk" ]; then
-    echo "Cloud SDK already installed. Updating..."
-    gcloud components update
-else
-    curl https://sdk.cloud.google.com | bash
-    gcloud components install app-engine-python app-engine-go kubectl beta alpha pubsub-emulator cloud-datastore-emulator bq
-fi
+# GCloud SDK
+export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+sudo apt-get update && sudo apt-get install google-cloud-sdk google-cloud-sdk-app-engine-python google-cloud-sdk-app-engine-go google-cloud-sdk-datalab google-cloud-sdk-datastore-emulator google-cloud-sdk-pubsub-emulator google-cloud-sdk-bigtable-emulator kubectl 
 
 #install golang
-GOVERSION="1.8"
+GOVERSION="1.8.1"
 DFILE="go$GOVERSION.linux-amd64.tar.gz"
 wget https://storage.googleapis.com/golang/$DFILE -P ~/Downloads
 if [ $? -ne 0 ]; then
@@ -48,14 +46,13 @@ if [ $? -ne 0 ]; then
 fi
 sudo tar -C /usr/local -xzf ~/Downloads/$DFILE
 mkdir -p ~/go/{bin,pkg,src/github.com/mikecb}
-go get github.com/derekparker/delve/cmd/dlv
 
 #Python dev
 sudo apt-get install python3-numpy python3-scipy python3-matplotlib ipython3 ipython3-notebook cython3
 sudo pip3 install yapf pystan
 sudo pip3 install --upgrade tensorflow
 
-#More Go
+#Protobufs
 sudo apt-get install protobuf-compiler
 go get -u github.com/golang/protobuf/{proto,protoc-gen-go}
 
