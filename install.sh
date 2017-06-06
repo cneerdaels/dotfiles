@@ -50,14 +50,6 @@ sudo tar -C /usr/local -xzf ~/Downloads/$DFILE
 mkdir -p ~/go/{bin,pkg,src/github.com/mikecb}
 go get github.com/derekparker/delve/cmd/dlv
 
-#install appengine sdk
-APPVERSION="1.9.35"
-AFILE="go_appengine_sdk_linux_amd64-$APPVERSION.zip"
-wget https://storage.googleapis.com/appengine-sdks/featured/$AFILE -P ~/Downloads
-mkdir -p ~/appengine
-unzip ~/Downloads/$AFILE -d ~/appengine
-echo "Log out and back in for changes to be reflected."
-
 #Python dev
 sudo apt-get install python3-numpy python3-scipy python3-matplotlib ipython3 ipython3-notebook cython3
 sudo pip3 install yapf pystan
