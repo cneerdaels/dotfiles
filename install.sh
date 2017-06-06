@@ -1,6 +1,4 @@
 #!/bin/bash
-#Add some repos
-sudo add-apt-repository ppa:webupd8team/atom
 
 # Update and install some fetchers.
 sudo apt-get update -y && sudo apt-get dist-upgrade -y
@@ -57,6 +55,6 @@ sudo apt-get install protobuf-compiler
 go get -u github.com/golang/protobuf/{proto,protoc-gen-go}
 
 #install atom & packages
-sudo apt-get install atom
+sudo snap install --classic atom
 apm install python-yapf git-plus minimap autocomplete-go go-plus go-debug sort-lines language-yara language-protobuf autocomplete-json 
 
